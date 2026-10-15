@@ -4,118 +4,176 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NEXIA 3 — Built to Move</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Manrope:wght@400;700;800&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#090b0d">
+<title>GENTRA — Made for the Drive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
+:root{--bg:#090b0d;--panel:#111519;--white:#f4f5f6;--muted:#92999f;--red:#ff3d45;--line:#ffffff1b}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:#101113;color:#f5f5f5;font-family:Manrope,Arial,sans-serif}
-:root{--lime:#d5ff3f}
-
-.hero:before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  background-image: url("https://commons.wikimedia.org/wiki/Special:Redirect/file/2018_Ravon_Nexia_R3_black.jpg");
-  background-size: cover;
-  background-position: center 55%;
-  filter: grayscale(1) brightness(.42) contrast(1.12);
-  animation: zoom 18s infinite alternate;
-}
-
-.hero:before{content:"";position:absolute;inset:0;z-index:-2;background:url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2200&q=90') center/cover;filter:grayscale(1) brightness(.4);animation:zoom 18s infinite alternate}
-.hero:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#090a0bf0,transparent 100%),linear-gradient(0deg,#101113,transparent 50%)}
-nav{display:flex;justify-content:space-between;align-items:center;animation:down 1s both}
-.logo{font:700 15px Orbitron,sans-serif;letter-spacing:3px}
-.logo b{color:var(--lime)}
-nav a{color:white;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase}
-nav .navbtn{border:1px solid #ffffff66;padding:12px 17px;transition:.3s}
-nav .navbtn:hover{background:var(--lime);color:#111}
-.content{margin:auto 0;max-width:800px;animation:up 1s .2s both}
-.tag{color:var(--lime);font-size:11px;letter-spacing:5px;text-transform:uppercase}
-h1{font:900 clamp(48px,9vw,120px)/.95 Orbitron,sans-serif;letter-spacing:-6px;margin:28px 0}
-h1 span{color:var(--lime)}
-.desc{color:#d0d0d0;line-height:1.9;max-width:430px;font-size:14px}
-.actions{display:flex;gap:25px;align-items:center;margin-top:32px;flex-wrap:wrap}
-.btn{background:var(--lime);color:#111;text-decoration:none;padding:17px 22px;font-size:11px;font-weight:800;letter-spacing:1.5px;transition:.3s}
-.btn:hover{transform:translateY(-4px);box-shadow:0 10px 30px #d5ff3f33}
-.more{color:#ddd;text-decoration:none;font-size:11px;letter-spacing:2px;border-bottom:1px solid #777;padding-bottom:8px}
-.ghost{position:absolute;right:-2%;bottom:11%;font:900 clamp(85px,19vw,260px)/.8 Orbitron,sans-serif;letter-spacing:-12px;color:transparent;-webkit-text-stroke:1px #ffffff35;white-space:nowrap;animation:slide 1.5s .4s both;pointer-events:none}
-.bottom{display:flex;justify-content:space-between;align-items:center;font-size:10px;letter-spacing:2px;color:#aaa}
-.bottom span{color:var(--lime)}
-section.info{padding:100px 8%;max-width:1400px;margin:auto}
-.kicker{color:var(--lime);font-size:11px;letter-spacing:4px}
-h2{font:700 clamp(32px,5vw,62px)/1.15 Orbitron,sans-serif;letter-spacing:-2px;margin:22px 0}
-h2 span{color:var(--lime)}
-.copy{color:#a9aaad;line-height:2;max-width:650px;font-size:14px}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #ffffff25;border-bottom:1px solid #ffffff25;margin-top:50px}
-.stat{padding:28px 12px 28px 0}
-.stat+.stat{border-left:1px solid #ffffff25;padding-left:25px}
-.num{font:700 clamp(25px,5vw,46px) Orbitron,sans-serif}
-.num small{color:var(--lime);font-size:14px}
-.label{font-size:10px;color:#999;letter-spacing:2px;margin-top:12px;line-height:1.8}
-.feature{display:grid;grid-template-columns:1fr 1fr;background:#191a1c}
-.carphoto{min-height:380px;background:url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=85') center/cover;filter:grayscale(1) brightness(.55)}
-.featuretext{padding:70px 9%;align-self:center}
-.featuretext p{color:#aaa;line-height:1.9;font-size:13px;margin-bottom:28px}
-footer{padding:28px 6%;border-top:1px solid #ffffff20;color:#777;font-size:10px;letter-spacing:2px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
-footer b{color:white;font-family:Orbitron,sans-serif}
-.reveal{opacity:0;transform:translateY(30px);transition:1s}
-.reveal.show{opacity:1;transform:translateY(0)}
-@keyframes up{from{opacity:0;transform:translateY(35px)}to{opacity:1;transform:translateY(0)}}
-@keyframes down{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
-@keyframes slide{from{opacity:0;transform:translateX(70px)}to{opacity:1;transform:translateX(0)}}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--bg);color:var(--white);font-family:Manrope,Arial,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--red);color:white}
+nav{height:82px;padding:0 7%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);position:absolute;top:0;left:0;width:100%;z-index:5;animation:down .8s both}
+.brand{font:800 17px Orbitron,sans-serif;letter-spacing:4px}
+.brand span{color:var(--red)}
+.navlinks{display:flex;gap:30px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#ddd}
+.navlinks a{transition:.25s}
+.navlinks a:hover{color:var(--red)}
+.menu-button{border:1px solid #ffffff55;padding:12px 17px;font-size:10px;letter-spacing:2px;text-transform:uppercase}
+.hero{min-height:100svh;position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding:125px 8% 65px}
+.hero:before{content:"";position:absolute;inset:0;z-index:-2;background:url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2400&q=90') center/cover;filter:grayscale(1) brightness(.35);animation:zoom 18s ease-in-out infinite alternate}
+.hero:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#080a0df5 0%,#080a0da8 42%,#080a0d20 100%),linear-gradient(0deg,var(--bg),transparent 35%,#080a0d70)}
+.hero-tag{color:var(--red);font-size:10px;letter-spacing:5px;font-weight:800;text-transform:uppercase;animation:up .8s .2s both}
+h1{font:900 clamp(60px,12vw,155px)/.9 Orbitron,sans-serif;letter-spacing:-.09em;margin:25px 0;animation:up .9s .35s both}
+h1 span{color:var(--red)}
+.hero-desc{max-width:510px;color:#d0d3d6;line-height:2;font-size:14px;animation:up .9s .5s both}
+.actions{display:flex;gap:22px;align-items:center;flex-wrap:wrap;margin-top:35px;animation:up .9s .65s both}
+.btn{display:inline-flex;gap:20px;align-items:center;background:var(--red);color:white;padding:17px 22px;font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;transition:.3s}
+.btn:hover{transform:translateY(-4px);box-shadow:0 12px 38px #ff3d453b}
+.secondary{font-size:10px;letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid #aaa;padding:0 0 8px}
+.watermark{position:absolute;z-index:-1;right:-3%;bottom:11%;font:900 clamp(90px,20vw,270px)/.8 Orbitron,sans-serif;letter-spacing:-.1em;color:transparent;-webkit-text-stroke:1px #ffffff26;white-space:nowrap;animation:slide 1.4s .5s both}
+.hero-foot{position:absolute;bottom:28px;left:8%;right:8%;display:flex;justify-content:space-between;color:#9da2a6;font-size:9px;letter-spacing:3px;text-transform:uppercase}
+.hero-foot b{color:var(--red)}
+.wrap{max-width:1400px;margin:auto;padding:110px 8%}
+.eyebrow{color:var(--red);font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;display:flex;gap:12px;align-items:center}
+.eyebrow:before{content:"";width:30px;height:1px;background:var(--red)}
+h2{font:700 clamp(32px,5.5vw,68px)/1.12 Orbitron,sans-serif;letter-spacing:-.055em;margin:25px 0}
+h2 span{color:var(--red)}
+.lead{max-width:750px;color:#aab0b5;font-size:14px;line-height:2}
+.story-grid{display:grid;grid-template-columns:1fr .8fr;gap:75px;align-items:center}
+.story-aside{border-left:2px solid var(--red);padding:10px 0 10px 25px;color:#b4bac0;font-size:13px;line-height:2}
+.story-aside strong{color:white}
+.numbers{display:grid;grid-template-columns:repeat(4,1fr);margin-top:55px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.number{padding:27px 12px 27px 0}
+.number+.number{padding-left:22px;border-left:1px solid var(--line)}
+.big{font:700 clamp(22px,4vw,43px) Orbitron,sans-serif}
+.big span{font-size:.45em;color:var(--red)}
+.small{color:var(--muted);font-size:9px;line-height:1.8;letter-spacing:2px;margin-top:12px}
+.dark-section{background:#0e1114;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:45px}
+.card{background:var(--panel);border:1px solid var(--line);padding:30px 25px;min-height:220px;transition:transform .35s,border-color .35s}
+.card:hover{transform:translateY(-7px);border-color:#ff3d4577}
+.card-icon{font:700 28px Orbitron,sans-serif;color:var(--red)}
+.card h3{font:600 16px Orbitron,sans-serif;margin:23px 0 13px}
+.card p{font-size:12px;line-height:1.9;color:#9da5ab}
+.history{display:grid;grid-template-columns:100px 1fr;gap:28px;padding:25px 0;border-bottom:1px solid var(--line)}
+.year{font:700 19px Orbitron,sans-serif;color:var(--red)}
+.history h3{font-size:16px;margin-bottom:10px}
+.history p{color:#9fa6ac;font-size:13px;line-height:1.9;max-width:750px}
+.photo-band{min-height:480px;position:relative;isolation:isolate;display:flex;align-items:center;padding:80px 8%;overflow:hidden}
+.photo-band:before{content:"";position:absolute;inset:0;z-index:-2;background:url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2000&q=85') center/cover;filter:grayscale(1) brightness(.35)}
+.photo-band:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#090b0df2,transparent)}
+.photo-band h2{max-width:700px}
+.photo-band p{max-width:480px;color:#bdc2c6;line-height:2;font-size:13px;margin-bottom:25px}
+.faq{max-width:850px;margin-top:35px}
+details{border-bottom:1px solid var(--line);padding:23px 0}
+summary{cursor:pointer;font-size:14px;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:15px}
+summary:after{content:"+";color:var(--red);font-size:22px}
+details[open] summary:after{content:"−"}
+details p{color:#a5acb2;line-height:1.9;font-size:13px;padding-top:17px}
+footer{padding:35px 8%;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;color:#7d858b;font-size:9px;letter-spacing:2px;border-top:1px solid var(--line)}
+footer b{font:700 13px Orbitron,sans-serif;color:white}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s,transform .8s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@keyframes up{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes down{from{opacity:0;transform:translateY(-15px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slide{from{opacity:0;transform:translateX(50px)}to{opacity:1;transform:translateX(0)}}
 @keyframes zoom{from{transform:scale(1)}to{transform:scale(1.12)}}
-@media(max-width:650px){.hero{padding:22px 20px;min-height:620px;height:95svh}.navbtn{display:none}h1{letter-spacing:-3px}.ghost{bottom:14%;letter-spacing:-5px}.hero:after{background:linear-gradient(90deg,#090a0be8, #090a0b55),linear-gradient(0deg,#101113,transparent 65%)}section.info{padding:70px 22px}.stats{margin-top:30px}.stat+.stat{padding-left:12px}.label{font-size:8px;letter-spacing:1px}.feature{grid-template-columns:1fr}.carphoto{min-height:250px}.featuretext{padding:45px 22px}.bottom{font-size:8px}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important;transition:none!important}.reveal{opacity:1;transform:none}}
+@media(max-width:750px){nav{height:70px;padding:0 22px}.navlinks{display:none}.menu-button{font-size:9px;padding:10px}.hero{padding:120px 23px 90px;min-height:90svh}.hero:after{background:linear-gradient(90deg,#080a0df0,#080a0d60),linear-gradient(0deg,var(--bg),transparent 60%)}h1{font-size:clamp(53px,14vw,90px);letter-spacing:-.07em}.hero-desc{font-size:13px}.watermark{font-size:22vw;bottom:15%}.hero-foot{left:23px;right:23px;font-size:8px;letter-spacing:1px}.wrap{padding:75px 23px}.story-grid{grid-template-columns:1fr;gap:25px}.numbers{grid-template-columns:repeat(2,1fr)}.number:nth-child(3){border-left:0;padding-left:0;border-top:1px solid var(--line)}.number:nth-child(4){border-top:1px solid var(--line)}.cards{grid-template-columns:1fr}.card{min-height:auto}.photo-band{padding:65px 23px;min-height:420px}.history{grid-template-columns:75px 1fr;gap:14px}.year{font-size:15px}footer{padding:28px 23px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
 </style>
 </head>
 <body>
-<header class="hero" id="top">
 <nav>
-<div class="logo">DRIVE <b>/ 03</b></div>
-<a href="#about">История</a>
-<a class="navbtn" href="#specs">Исследовать ↗</a>
+<a class="brand" href="#top">GEN<span>TRA</span></a>
+<div class="navlinks"><a href="#story">История</a><a href="#specs">Характеристики</a><a href="#facts">Факты</a><a href="#faq">FAQ</a></div>
+<a class="menu-button" href="#story">Исследовать ↗</a>
 </nav>
-<div class="content">
-<div class="tag">The city is your circuit</div>
-<h1>BUILT TO<br><span>MOVE.</span></h1>
-<p class="desc">Характер городского движения. Сдержанный силуэт, уверенный стиль и энергия, которая чувствуется с первого взгляда.</p>
-<div class="actions">
-<a class="btn" href="#about">ОТКРЫТЬ ИСТОРИЮ ↘</a>
-<a class="more" href="#specs">УЗНАТЬ БОЛЬШЕ</a>
-</div>
-</div>
-<div class="ghost">NEXIA 3</div>
-<div class="bottom"><div>↓ &nbsp; SCROLL TO EXPLORE</div><div><span>01</span> / AUTOMOTIVE SERIES</div></div>
+
+<header class="hero" id="top">
+<div class="hero-tag">A sedan with a story / Uzbekistan</div>
+<h1>OWN THE<br><span>ROAD.</span></h1>
+<p class="hero-desc">Chevrolet Gentra — городской седан с узнаваемым характером. Практичность на каждый день, знакомый силуэт и целая культура вокруг автомобиля.</p>
+<div class="actions"><a class="btn" href="#story">Открыть историю <span>↘</span></a><a class="secondary" href="#specs">Изучить модель</a></div>
+<div class="watermark">GENTRA</div>
+<div class="hero-foot"><span><b>01</b> / THE SEDAN STORY</span><span>DESIGNED FOR EVERYDAY DRIVE</span></div>
 </header>
-<section class="info" id="about">
-<div class="reveal">
-<div class="kicker">01 / CHARACTER</div>
-<h2>НЕ ПРОСТО<br><span>ТОЧКА А — Б.</span></h2>
-<p class="copy">Nexia 3 — знакомый городской седан, ставший частью автомобильной культуры Узбекистана. Практичный формат, узнаваемый силуэт и характер, который каждый владелец раскрывает по-своему. Этот концепт — дань уважения машине и уличной эстетике.</p>
+
+<section class="wrap" id="story">
+<div class="story-grid reveal">
+<div><div class="eyebrow">01 / The identity</div><h2>БОЛЬШЕ, ЧЕМ<br><span>АВТОМОБИЛЬ.</span></h2><p class="lead">Chevrolet Gentra занимает особое место на дорогах Узбекистана. Её выбирают за понятную конструкцию, комфортный формат седана и универсальность: машина подходит для повседневных поездок, семейных дел и долгих маршрутов между городами.</p></div>
+<div class="story-aside"><strong>Секрет популярности?</strong><br>Не обязательно быть самым дорогим автомобилем, чтобы стать частью повседневной жизни. Gentra стала знакомым силуэтом на улицах, в поездках и в автомобильных сообществах.</div>
 </div>
-<div class="stats reveal" id="specs">
-<div class="stat"><div class="num">1.5 <small>L</small></div><div class="label">РАБОЧИЙ ОБЪЁМ<br>ДВИГАТЕЛЯ</div></div>
-<div class="stat"><div class="num">4 <small>CYL</small></div><div class="label">БЕНЗИНОВЫЙ<br>ДВИГАТЕЛЬ</div></div>
-<div class="stat"><div class="num">FWD</div><div class="label">ПЕРЕДНИЙ<br>ПРИВОД</div></div>
+<div class="numbers reveal" id="specs">
+<div class="number"><div class="big">1.5<span> L</span></div><div class="small">ОБЪЁМ ДВИГАТЕЛЯ<br>В РАСПРОСТРАНЁННЫХ ВЕРСИЯХ</div></div>
+<div class="number"><div class="big">4<span> CYL</span></div><div class="small">ЧЕТЫРЁХЦИЛИНДРОВЫЙ<br>БЕНЗИНОВЫЙ МОТОР</div></div>
+<div class="number"><div class="big">FWD</div><div class="small">ПЕРЕДНИЙ<br>ПРИВОД</div></div>
+<div class="number"><div class="big">SEDAN</div><div class="small">КЛАССИЧЕСКИЙ<br>КУЗОВ СЕДАН</div></div>
 </div>
-<p class="copy" style="font-size:11px;margin-top:16px">* Характеристики зависят от года выпуска и комплектации автомобиля.</p>
+<p class="lead reveal" style="font-size:10px;margin-top:15px">Важно: характеристики зависят от года выпуска, рынка и комплектации. Перед покупкой проверяйте данные конкретного автомобиля.</p>
 </section>
-<div class="feature" id="details">
-<div class="carphoto" role="img" aria-label="Автомобиль в тёмном стиле"></div>
-<div class="featuretext reveal">
-<div class="kicker">02 / DETAILS MATTER</div>
-<h2>ТВОЙ ГОРОД.<br><span>ТВОИ ПРАВИЛА.</span></h2>
-<p>Тёмные оттенки, чистые линии и детали, которые задают настроение. Nexia 3 — твоя машина, твой стиль, твоя история.</p>
-<a class="btn" href="#top">ВЕРНУТЬСЯ НАВЕРХ ↑</a>
+
+<section class="dark-section">
+<div class="wrap">
+<div class="reveal"><div class="eyebrow">02 / What makes it special</div><h2>ПРОСТОТА — ЭТО<br><span>ТОЖЕ ХАРАКТЕР.</span></h2><p class="lead">У Gentra нет необходимости выглядеть экзотично. Её сила — в знакомой форме, удобном формате и возможности адаптировать автомобиль под собственные задачи.</p></div>
+<div class="cards">
+<article class="card reveal"><div class="card-icon">01</div><h3>ГОРОДСКОЙ ФОРМАТ</h3><p>Кузов седан, четыре двери и отдельный багажник делают автомобиль удобным спутником для ежедневных маршрутов, работы и семейных поездок.</p></article>
+<article class="card reveal"><div class="card-icon">02</div><h3>ЗНАКОМАЯ ТЕХНИКА</h3><p>На многих версиях используется атмосферный бензиновый двигатель. Точное оснащение зависит от года и конкретной комплектации.</p></article>
+<article class="card reveal"><div class="card-icon">03</div><h3>КУЛЬТУРА ВОКРУГ</h3><p>Gentra часто встречается в местных автомобильных сообществах. Владельцы обсуждают обслуживание, внешний вид, колёса, свет и персонализацию.</p></article>
 </div>
 </div>
-<footer><b>NEXIA 3 / DRIVE 03</b><span>НЕОФИЦИАЛЬНЫЙ ФАН-САЙТ</span><a href="#top" style="color:#aaa">НАВЕРХ ↑</a></footer>
+</section>
+
+<section class="wrap">
+<div class="reveal"><div class="eyebrow">03 / The timeline</div><h2>КАК ПОЯВИЛАСЬ<br><span>GENTRA.</span></h2></div>
+<div class="history reveal"><div class="year">2000s</div><div><h3>Корни семейства Lacetti</h3><p>История модели связана с Chevrolet Lacetti — компактным автомобилем, известным на разных рынках в нескольких вариантах кузова и комплектациях.</p></div></div>
+<div class="history reveal"><div class="year">2010s</div><div><h3>Имя Gentra</h3><p>На отдельных рынках название Gentra стало использоваться для автомобилей семейства Lacetti. Конкретные отличия зависели от страны, года и версии.</p></div></div>
+<div class="history reveal"><div class="year">2010s+</div><div><h3>Популярность в Узбекистане</h3><p>Gentra стала привычной частью местного автопарка. Её можно увидеть в повседневных поездках, междугородних маршрутах и на автомобильных встречах.</p></div></div>
+<div class="history reveal"><div class="year">TODAY</div><div><h3>Автомобиль с собственным стилем</h3><p>Для многих владельцев автомобиль — не просто транспорт. Это проект, который можно поддерживать в хорошем состоянии, персонализировать и постепенно улучшать.</p></div></div>
+</section>
+
+<section class="photo-band">
+<div class="reveal"><div class="eyebrow">04 / Make it yours</div><h2>ТВОЙ МАРШРУТ.<br><span>ТВОЙ ХАРАКТЕР.</span></h2><p>Чистый кузов, аккуратные детали, исправная техника и индивидуальный стиль. Хороший автомобильный образ начинается с внимания к мелочам.</p><a href="#facts" class="btn">Интересные факты ↘</a></div>
+</section>
+
+<section class="wrap" id="facts">
+<div class="reveal"><div class="eyebrow">05 / Did you know?</div><h2>ИНТЕРЕСНЫЕ<br><span>ФАКТЫ.</span></h2></div>
+<div class="cards">
+<article class="card reveal"><div class="card-icon">A</div><h3>У модели есть родственники</h3><p>Gentra связана с семейством Chevrolet Lacetti. Поэтому в истории автомобиля встречаются разные названия и региональные версии.</p></article>
+<article class="card reveal"><div class="card-icon">B</div><h3>Комплектации отличаются</h3><p>Наличие подушек безопасности, ABS, кондиционера, коробки передач и других опций нужно проверять по конкретному автомобилю.</p></article>
+<article class="card reveal"><div class="card-icon">C</div><h3>Состояние важнее тюнинга</h3><p>Регулярное обслуживание, качественные шины, исправные тормоза и подвеска влияют на повседневную езду сильнее, чем декоративные изменения.</p></article>
+<article class="card reveal"><div class="card-icon">D</div><h3>У седана отдельный багажник</h3><p>Традиционная компоновка кузова помогает отделить багажное пространство от салона и делает форму автомобиля узнаваемой.</p></article>
+<article class="card reveal"><div class="card-icon">E</div><h3>Одна модель — разные истории</h3><p>Два автомобиля одного названия могут отличаться годом выпуска, оснащением, техническим состоянием и историей эксплуатации.</p></article>
+<article class="card reveal"><div class="card-icon">F</div><h3>Индивидуальность в деталях</h3><p>Цвет кузова, состояние лакокрасочного покрытия, чистые фары и ухоженный салон способны сильно изменить общее впечатление от машины.</p></article>
+</div>
+</section>
+
+<section class="dark-section" id="faq">
+<div class="wrap">
+<div class="reveal"><div class="eyebrow">06 / Quick answers</div><h2>ВОПРОСЫ<br><span>О GENTRA.</span></h2></div>
+<div class="faq reveal">
+<details><summary>Gentra и Lacetti — это одна модель?</summary><p>Они тесно связаны исторически и технически, однако название, комплектация и некоторые детали могут различаться в зависимости от рынка и года выпуска.</p></details>
+<details><summary>Какой двигатель установлен на Gentra?</summary><p>На многих распространённых версиях встречается бензиновый двигатель объёмом 1,5 литра. Перед покупкой сверяйте данные с документами и VIN конкретной машины.</p></details>
+<details><summary>Механика или автомат?</summary><p>На рынке встречаются версии с разными коробками передач. Выбор зависит от года, состояния автомобиля и предпочтений водителя.</p></details>
+<details><summary>На что смотреть при покупке?</summary><p>Проверьте историю обслуживания, кузов, двигатель, коробку передач, подвеску, тормоза и электронные системы. Перед покупкой полезна независимая диагностика.</p></details>
+<details><summary>Это официальный сайт Chevrolet?</summary><p>Нет. Это независимый фан-сайт о модели Gentra, созданный для ознакомления. Он не связан с Chevrolet или производителем автомобиля.</p></details>
+</div>
+</div>
+</section>
+
+<footer><b>GENTRA / DRIVE CULTURE</b><span>НЕОФИЦИАЛЬНЫЙ АВТОМОБИЛЬНЫЙ ПРОЕКТ</span><a href="#top">НАВЕРХ ↑</a></footer>
 <script>
-const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');obs.unobserve(e.target)}}),{threshold:.15});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+const observer=new IntersectionObserver(entries=>{
+ entries.forEach(entry=>{
+  if(entry.isIntersecting){
+   entry.target.classList.add('visible');
+   observer.unobserve(entry.target);
+  }
+ });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 </script>
 </body>
 </html>
