@@ -11,7 +11,19 @@
 html{scroll-behavior:smooth}
 body{background:#101113;color:#f5f5f5;font-family:Manrope,Arial,sans-serif}
 :root{--lime:#d5ff3f}
-.hero{height:100vh;min-height:650px;position:relative;overflow:hidden;display:flex;flex-direction:column;padding:30px 6%;isolation:isolate}
+
+.hero:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: url("https://commons.wikimedia.org/wiki/Special:Redirect/file/2018_Ravon_Nexia_R3_black.jpg");
+  background-size: cover;
+  background-position: center 55%;
+  filter: grayscale(1) brightness(.42) contrast(1.12);
+  animation: zoom 18s infinite alternate;
+}
+
 .hero:before{content:"";position:absolute;inset:0;z-index:-2;background:url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2200&q=90') center/cover;filter:grayscale(1) brightness(.4);animation:zoom 18s infinite alternate}
 .hero:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#090a0bf0,transparent 100%),linear-gradient(0deg,#101113,transparent 50%)}
 nav{display:flex;justify-content:space-between;align-items:center;animation:down 1s both}
