@@ -1,0 +1,283 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="theme-color" content="#050008">
+<title>Мамочка, я тебя люблю ❤️</title>
+
+<style>
+* { box-sizing: border-box; }
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #050008;
+    color: white;
+    font-family: Arial, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#rain, #effects {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+#rain { z-index: 1; }
+#effects { z-index: 4; }
+
+.content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: clamp(32px, 9vw, 48px);
+    line-height: 1.25;
+    color: #ff75ae;
+    text-shadow: 0 0 12px #ff0066, 0 0 30px #ff3388;
+    animation: glow 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { filter: brightness(.8); }
+    to { filter: brightness(1.5); }
+}
+
+.subtitle {
+    color: #ffd0e4;
+    font-size: 17px;
+    line-height: 1.5;
+    margin-top: 5px;
+}
+
+#heartButton {
+    position: relative;
+    z-index: 5;
+    display: block;
+    margin-top: 48px;
+    padding: 12px;
+    border: 0;
+    background: transparent;
+    color: white;
+    font-size: 86px;
+    line-height: 1.2;
+    cursor: pointer;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    animation: beat 1s infinite;
+    filter: drop-shadow(0 0 14px #ff176b);
+}
+
+@keyframes beat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.16); }
+}
+
+.hint {
+    color: #ffb6d5;
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.drop {
+    position: absolute;
+    top: -40px;
+    animation: fall linear forwards;
+    will-change: transform;
+}
+
+@keyframes fall {
+    to {
+        transform: translate3d(0, 110vh, 0) rotate(300deg);
+        opacity: .1;
+    }
+}
+
+.particle {
+    position: absolute;
+    left: 0;
+    top: 0;
+    will-change: transform, opacity;
+    animation: fly 2.2s ease-out forwards;
+}
+
+@keyframes fly {
+    0% {
+        transform: translate3d(0,0,0) scale(1);
+        opacity: 1;
+    }
+    35% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate3d(var(--x),var(--y),0)
+                   rotate(var(--r)) scale(.65);
+        opacity: 0;
+    }
+}
+
+#message {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    width: 88%;
+    max-width: 420px;
+    transform: translate(-50%, -50%);
+    padding: 25px 20px;
+    border: 1px solid #ff5b9b;
+    border-radius: 22px;
+    background: rgba(35, 0, 23, .97);
+    box-shadow: 0 0 35px #ff176b;
+    color: #fff0f7;
+    font-size: 23px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+#message.show {
+    display: block;
+    animation: appear 3.5s ease forwards;
+}
+
+@keyframes appear {
+    0% { opacity: 0; }
+    15%, 75% { opacity: 1; }
+    100% { opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+<div id="rain"></div>
+<div id="effects"></div>
+
+<main class="content">
+    <h1>Мама я тебя люблю ❤️</h1>
+    <div class="subtitle">Ты самое дорогое, что у меня есть!</div>
+
+    <button id="heartButton" type="button"
+            aria-label="Нажми на сердечко">❤️</button>
+    <div class="hint">Нажми на сердечко 💖</div>
+</main>
+
+<div id="message">
+    Мамочка, ты самое дорогое,<br>
+    что у меня есть!<br>
+    Я очень сильно тебя люблю ❤️
+</div>
+
+<script>
+(function () {
+    var rain = document.getElementById("rain");
+    var effects = document.getElementById("effects");
+    var button = document.getElementById("heartButton");
+    var message = document.getElementById("message");
+
+    var symbols = ["❤️", "💗", "💖", "💕", "💓", "💘"];
+    var busy = false;
+
+    function random(min, max) {
+        return Math.random() * (max - min) + min;
+    }
+
+    // Дождь из сердечек
+    function makeRain() {
+        var heart = document.createElement("span");
+        heart.className = "drop";
+        heart.textContent = symbols[
+            Math.floor(Math.random() * symbols.length)
+        ];
+
+        heart.style.left = random(0, 98) + "vw";
+        heart.style.fontSize = random(13, 27) + "px";
+        heart.style.animationDuration = random(3, 7) + "s";
+
+        rain.appendChild(heart);
+
+        setTimeout(function () {
+            if (heart.parentNode) heart.parentNode.removeChild(heart);
+        }, 8000);
+    }
+
+    setInterval(makeRain, 160);
+
+    // Взрыв маленьких сердечек
+    function explode(event) {
+        if (busy) return;
+        busy = true;
+
+        if (event) event.preventDefault();
+
+        var rect = button.getBoundingClientRect();
+        var cx = rect.left + rect.width / 2;
+        var cy = rect.top + rect.height / 2;
+
+        button.style.visibility = "hidden";
+
+        for (var i = 0; i < 90; i++) {
+            var p = document.createElement("span");
+            p.className = "particle";
+            p.textContent = symbols[
+                Math.floor(Math.random() * symbols.length)
+            ];
+
+            p.style.left = cx + "px";
+            p.style.top = cy + "px";
+            p.style.fontSize = random(13, 25) + "px";
+
+            // Сердечки разлетаются вверх и в стороны,
+            // а затем опускаются вниз.
+            var angle = Math.random() * Math.PI * 2;
+            var distance = random(70, 280);
+            var x = Math.cos(angle) * distance;
+            var y = -random(100, 350) + random(100, 480);
+
+            p.style.setProperty("--x", x + "px");
+            p.style.setProperty("--y", y + "px");
+            p.style.setProperty("--r", random(-720, 720) + "deg");
+
+            effects.appendChild(p);
+
+            (function (particle) {
+                setTimeout(function () {
+                    if (particle.parentNode) {
+                        particle.parentNode.removeChild(particle);
+                    }
+                }, 2400);
+            })(p);
+        }
+
+        message.className = "show";
+
+        setTimeout(function () {
+            message.className = "";
+            button.style.visibility = "visible";
+            busy = false;
+        }, 3600);
+    }
+
+    // Поддержка касания и клика.
+    // Используем click, чтобы одно касание не создавало двойной взрыв.
+    button.addEventListener("click", explode, false);
+})();
+</script>
+</body>
+</html>
+```
